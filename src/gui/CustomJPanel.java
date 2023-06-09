@@ -26,46 +26,47 @@ public class CustomJPanel extends JPanel {
     public void confirmAdd(String message, ArrayList<JTextField> fields, int type) {
         int option = JOptionPane.showConfirmDialog(this, message, "Confirm Action", JOptionPane.YES_NO_OPTION);
 
-        if (option == JOptionPane.OK_OPTION) {
-            StringBuilder data = new StringBuilder();
+        if (option != JOptionPane.OK_OPTION)
+            return;
 
-            for (int i = 0; i < fields.size(); i++) {
-                String value = fields.get(i).getText();
+        StringBuilder data = new StringBuilder();
 
-                if (value.contains(",")) { // NO COMMAS ALLOWED!!!! WE ARE USING CSV FORMAT!!!
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Invalid Character: ' , ' in " + fields.get(i).getName(),
-                            "Entity Not Added",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                    return;
-                }
+        for (int i = 0; i < fields.size(); i++) {
+            String value = fields.get(i).getText();
 
-                if (i == fields.size() - 1)
-                    data.append( fields.get(fields.size() - 1).getText() );
-                else
-                    data.append(value).append(",");
+            if (value.contains(",")) { // NO COMMAS ALLOWED!!!! WE ARE USING CSV FORMAT!!!
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Invalid Character: ' , ' in " + fields.get(i).getName(),
+                        "Entity Not Added",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                return;
             }
 
-            boolean valid = false;
-            switch (type) {
-                case STUDENTS_TO_DB -> valid = dataHandler.addStudent(data.toString());
-                case INSTRUCTORS -> valid = dataHandler.addInstructor(data.toString());
-                case DEPARTMENTS -> valid = dataHandler.addDepartment(data.toString());
-                case COURSES -> valid = dataHandler.addCourse(data.toString());
-                case SECTIONS -> valid = dataHandler.addSection(data.toString());
-                case GRADE_REPORT -> valid = dataHandler.addGrade(data.toString());
-                case STUDENTS_TO_SECTION -> valid = dataHandler.addStudentToSection(data.toString());
-                default -> System.out.println(data);
-            }
+            if (i == fields.size() - 1)
+                data.append( fields.get(fields.size() - 1).getText() );
+            else
+                data.append(value).append(",");
+        }
 
-            if (valid) {
-                clearFields(fields);
-                JOptionPane.showMessageDialog(this, "Entity added successfully!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid Entry", "Entity not added", JOptionPane.ERROR_MESSAGE);
-            }
+        boolean valid = false;
+        switch (type) {
+            case STUDENTS_TO_DB -> valid = dataHandler.addStudent(data.toString());
+            case INSTRUCTORS -> valid = dataHandler.addInstructor(data.toString());
+            case DEPARTMENTS -> valid = dataHandler.addDepartment(data.toString());
+            case COURSES -> valid = dataHandler.addCourse(data.toString());
+            case SECTIONS -> valid = dataHandler.addSection(data.toString());
+            case GRADE_REPORT -> valid = dataHandler.addGrade(data.toString());
+            case STUDENTS_TO_SECTION -> valid = dataHandler.addStudentToSection(data.toString());
+            default -> System.out.println(data);
+        }
+
+        if (valid) {
+            clearFields(fields);
+            JOptionPane.showMessageDialog(this, "Entity added successfully!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid Entry", "Entity not added", JOptionPane.ERROR_MESSAGE);
         }
     }
 
