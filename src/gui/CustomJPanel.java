@@ -29,8 +29,9 @@ public class CustomJPanel extends JPanel {
         if (option == JOptionPane.OK_OPTION) {
             StringBuilder data = new StringBuilder();
 
-            for (int i = 0; i < fields.size() - 1; i++) {
+            for (int i = 0; i < fields.size(); i++) {
                 String value = fields.get(i).getText();
+
                 if (value.contains(",")) { // NO COMMAS ALLOWED!!!! WE ARE USING CSV FORMAT!!!
                     JOptionPane.showMessageDialog(
                             this,
@@ -40,9 +41,12 @@ public class CustomJPanel extends JPanel {
                     );
                     return;
                 }
-                data.append(value).append(",");
+
+                if (i == fields.size() - 1)
+                    data.append( fields.get(fields.size() - 1).getText() );
+                else
+                    data.append(value).append(",");
             }
-            data.append( fields.get(fields.size() - 1).getText() );
 
             boolean valid = false;
             switch (type) {
