@@ -138,8 +138,32 @@ public class StudentToSectionPanel extends CustomJPanel {
         gbc.gridwidth = 1; gbc.anchor = GridBagConstraints.LINE_START;
         gbc.insets = new Insets(5, 15, 5, 15);
 
-        // Course info labels
+        // Grade info labels
         gbc.gridy = 11;
+
+        gbc.gridx = 0;
+        add(new JLabel("Student N_Number"), gbc);
+
+        gbc.gridx = 1;
+        add(new JLabel("Letter Grade"), gbc);
+
+        // Grade info fields
+        gbc.gridy = 12;
+
+        gbc.gridx = 0;
+        JTextField nNumberAddGrade = new JTextField(9);
+        nNumberAddGrade.setName("Student N_Number");
+        gradeFields.add(nNumberAddGrade);
+        add(nNumberAddGrade, gbc);
+
+        gbc.gridx = 1;
+        JTextField grade = new JTextField(9);
+        grade.setName("Letter Grade");
+        gradeFields.add(grade);
+        add(grade, gbc);
+
+        // Course info labels
+        gbc.gridy = 13;
 
         gbc.gridx = 0;
         add(new JLabel("Course No."), gbc);
@@ -154,7 +178,7 @@ public class StudentToSectionPanel extends CustomJPanel {
         add(new JLabel("Year"), gbc);
 
         // Course info fields
-        gbc.gridy = 12;
+        gbc.gridy = 14;
 
         gbc.gridx = 0;
         JTextField courseNumAddGrade = new JTextField(9);
@@ -179,30 +203,6 @@ public class StudentToSectionPanel extends CustomJPanel {
         yearAddGrade.setName("Year");
         gradeFields.add(yearAddGrade);
         add(yearAddGrade, gbc);
-
-        // Grade info labels
-        gbc.gridy = 13;
-
-        gbc.gridx = 0;
-        add(new JLabel("Student N_Number"), gbc);
-
-        gbc.gridx = 1;
-        add(new JLabel("Letter Grade"), gbc);
-
-        // Grade info fields
-        gbc.gridy = 14;
-
-        gbc.gridx = 0;
-        JTextField nNumberAddGrade = new JTextField(9);
-        nNumberAddGrade.setName("Student N_Number");
-        gradeFields.add(nNumberAddGrade);
-        add(nNumberAddGrade, gbc);
-
-        gbc.gridx = 1;
-        JTextField grade = new JTextField(9);
-        grade.setName("Letter Grade");
-        gradeFields.add(grade);
-        add(grade, gbc);
 
         /*  *  *  *  *  *  *
          *      FOOTER     *
