@@ -37,7 +37,7 @@ public class StudentToSectionPanel extends CustomJPanel {
         add(subtitle, gbc);
 
         gbc.insets = new Insets(5, 15, 5, 15);
-        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.anchor = GridBagConstraints.CENTER;
 
         /*  *  *  *  *  *  *  *  *
          *  STUDENT/COURSE INFO  *
@@ -46,22 +46,22 @@ public class StudentToSectionPanel extends CustomJPanel {
         // Student/Course info labels
         gbc.gridy = 3;  gbc.gridwidth = 1;
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         add(new JLabel("N_Number"), gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         add(new JLabel("Course No."), gbc);
 
         // Student/Course info fields
         gbc.gridy = 4;
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         JTextField nNumber = new JTextField(9);
         nNumber.setName("N_Number");
         studentFields.add(nNumber);
         add(nNumber, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         JTextField courseNum = new JTextField(9);
         courseNum.setName("Course No.");
         studentFields.add(courseNum);
@@ -70,13 +70,13 @@ public class StudentToSectionPanel extends CustomJPanel {
         // Section info labels
         gbc.gridy = 5;
 
-        gbc.gridx = 0;
+        gbc.gridx = 0; gbc.gridwidth = 2;
         add(new JLabel("Section No."), gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 0; gbc.gridwidth = MAX_COLS;
         add(new JLabel("Section Semester"), gbc);
 
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.gridwidth = 2;
         add(new JLabel("Section Year"), gbc);
 
         // Section info fields
@@ -88,20 +88,20 @@ public class StudentToSectionPanel extends CustomJPanel {
         studentFields.add(sectionNum);
         add(sectionNum, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 0; gbc.gridwidth = MAX_COLS;
         JTextField semester = new JTextField(9);
         semester.setName("Semester");
         studentFields.add(semester);
         add(semester, gbc);
 
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.gridwidth = 2;
         JTextField year = new JTextField(5);
         year.setName("Year");
         studentFields.add(year);
         add(year, gbc);
 
         // Clear and submit buttons
-        gbc.gridwidth = MAX_COLS; gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridwidth = MAX_COLS;
         gbc.gridx = 0; gbc.gridy = 7; gbc.insets = new Insets(5, 0, 15, 0);
         add(new HorizontalRule(550), gbc);
 
@@ -124,7 +124,7 @@ public class StudentToSectionPanel extends CustomJPanel {
          *  *  *  *  *  *  *  */
 
         // Header
-        gbc.gridwidth = MAX_COLS; gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridwidth = MAX_COLS;
         gbc.gridx = 0; gbc.gridy = 9; gbc.insets = new Insets(15, 0, 0, 0);
         add(new HorizontalRule(550), gbc);
 
@@ -135,28 +135,28 @@ public class StudentToSectionPanel extends CustomJPanel {
         subtitle.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 15));
         add(subtitle, gbc);
 
-        gbc.gridwidth = 1; gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.gridwidth = 1;
         gbc.insets = new Insets(5, 15, 5, 15);
 
         // Grade info labels
         gbc.gridy = 11;
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         add(new JLabel("Student N_Number"), gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         add(new JLabel("Letter Grade"), gbc);
 
         // Grade info fields
         gbc.gridy = 12;
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         JTextField nNumberAddGrade = new JTextField(9);
         nNumberAddGrade.setName("Student N_Number");
         gradeFields.add(nNumberAddGrade);
         add(nNumberAddGrade, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         JTextField grade = new JTextField(9);
         grade.setName("Letter Grade");
         gradeFields.add(grade);
@@ -209,7 +209,7 @@ public class StudentToSectionPanel extends CustomJPanel {
          *  *  *  *  *  *  */
 
         // Clear and submit buttons
-        gbc.gridwidth = MAX_COLS; gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridwidth = MAX_COLS;
         gbc.gridx = 0; gbc.gridy = 15; gbc.insets = new Insets(5, 0, 15, 0);
         add(new HorizontalRule(550), gbc);
 
