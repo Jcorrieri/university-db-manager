@@ -241,7 +241,7 @@ public class StudentToDbPanel extends CustomJPanel {
 
         gbc.gridx = 0;
         JTextField major = new JTextField(20);
-        major.setName("Major Dept.");
+        major.setName("Major Dept."); // Test comment
         textFields.add(major);
         add(major, gbc);
 
