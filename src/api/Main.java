@@ -12,6 +12,7 @@ public class Main {
         base.setLocationRelativeTo(null);
         base.setVisible(true);
 
-        String plarb = "plarb";
+        String hello = "hello";
+        System.out.println(hello);
     }
 }
