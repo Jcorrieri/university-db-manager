@@ -11,5 +11,8 @@ public class Main {
         CustomJFrame base = new CustomJFrame(dataHandler); // Set dataHandler for panels and dialogs
         base.setLocationRelativeTo(null);
         base.setVisible(true);
+
+        String hello = "hello";
+        System.out.println(hello);
     }
 }
