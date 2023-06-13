@@ -34,20 +34,19 @@ public class CustomJPanel extends JPanel {
         for (int i = 0; i < fields.size(); i++) {
             String value = fields.get(i).getText();
 
-            if (value.contains(",")) { // NO COMMAS ALLOWED!!!! WE ARE USING CSV FORMAT!!!
-                JOptionPane.showMessageDialog(
-                        this,
-                        "Invalid Character: ' , ' in " + fields.get(i).getName(),
-                        "Entity Not Added",
-                        JOptionPane.ERROR_MESSAGE
-                );
-                return;
+            boolean isString = false;
+            try {
+                Integer.parseInt(value);
+            } catch (NumberFormatException e) {
+                isString = true;
+                data.append('"');
             }
 
-            if (i == fields.size() - 1)
-                data.append( fields.get(fields.size() - 1).getText() );
-            else
-                data.append(value).append(",");
+            data.append(value);
+            if (isString)
+                data.append('"');
+            if (i != fields.size() - 1)
+                data.append(",");
         }
 
         boolean valid = false;
