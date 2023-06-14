@@ -51,7 +51,7 @@ public class CustomJPanel extends JPanel {
 
         boolean valid = false;
         switch (type) {
-            case STUDENTS_TO_DB -> valid = dataHandler.addStudent(data.toString());
+            case STUDENTS_TO_DB -> valid = dataHandler.addStudentToDatabase(data.toString());
             case INSTRUCTORS -> valid = dataHandler.addInstructor(data.toString());
             case DEPARTMENTS -> valid = dataHandler.addDepartment(data.toString());
             case COURSES -> valid = dataHandler.addCourse(data.toString());

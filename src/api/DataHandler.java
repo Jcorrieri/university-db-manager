@@ -37,7 +37,7 @@ public class DataHandler {
      *           (Return false if entry is invalid)           *
      *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
 
-    public boolean addStudent(String studentData) {
+    public boolean addStudentToDatabase(String studentData) {
         // Process student data and add to database... (Front-end task #1)
         studentLog.add(studentData);
         return true;
