@@ -62,7 +62,6 @@ public class ViewDialog extends JDialog {
             inputLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
         }
 
-
         gbc.gridx = 0; gbc.gridy = 0;
         add(inputLabel, gbc);
 
@@ -97,6 +96,6 @@ public class ViewDialog extends JDialog {
                 outputArea.setText(header + "\n" + lineBreak);
             }
         }
-        outputArea.setText( Main.generateQuery(type) );
+        outputArea.append( Main.generateQuery(type) );
     }
 }
