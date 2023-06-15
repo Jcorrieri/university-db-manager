@@ -78,21 +78,20 @@ public class ViewDialog extends JDialog {
     }
 
     private void generateView(int type) {
+        String lineBreak = "-----------------------------------------------------------------------------------------";
+
         switch (type) {
             case GRADE_REPORT -> {
                 String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER, TOTAL GPA";
-                String lineBreak = "---------------------------------------------------------------------------------";
                 String header2 = "COURSE NO., SECTION NO., LETTER GRADE, POINTS EARNED";
-                outputArea.setText(header1 + "\n" + lineBreak + "\n" + header2);
+                outputArea.setText(header1 + "\n" + lineBreak + "\n" + header2 + "\n" + lineBreak);
             }
             case COURSES -> {
                 String header = "NAME, DESCRIPTION, NUMBER, HOURS, LEVEL";
-                String lineBreak = "-------------------------------------------------------------------";
                 outputArea.setText(header + "\n" + lineBreak);
             }
             case SECTIONS -> {
                 String header = "COURSE, SECTION NO., SEMESTER, YEAR";
-                String lineBreak = "--------------------------------------------------------------";
                 outputArea.setText(header + "\n" + lineBreak);
             }
         }
