@@ -10,7 +10,7 @@ import static gui.CustomJPanel.*;
 public class ViewDialog extends JDialog {
 
     private final GridBagConstraints gbc = new GridBagConstraints();
-    JTextArea outputArea = new JTextArea(12, 30);
+    JTextArea outputArea = new JTextArea(12, 45);
 
     public ViewDialog(CustomJFrame frame, int type) {
         super(frame, "View Dialog", true);
@@ -61,6 +61,7 @@ public class ViewDialog extends JDialog {
             inputLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
         }
 
+
         gbc.gridx = 0; gbc.gridy = 0;
         add(inputLabel, gbc);
 
@@ -72,11 +73,28 @@ public class ViewDialog extends JDialog {
         gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
         JButton submit = new JButton( text[text.length - 1] );
         submit.setFocusPainted(false);
-        submit.addActionListener(e -> getView(type));
+        submit.addActionListener(e -> generateView(type));
         add(submit, gbc);
     }
 
-    private void getView(int type) {
-        //
+    private void generateView(int type) {
+        switch (type) {
+            case GRADE_REPORT -> {
+                String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER, TOTAL GPA";
+                String lineBreak = "---------------------------------------------------------------------------------";
+                String header2 = "COURSE NO., SECTION NO., LETTER GRADE, POINTS EARNED";
+                outputArea.setText(header1 + "\n" + lineBreak + "\n" + header2);
+            }
+            case COURSES -> {
+                String header = "NAME, DESCRIPTION, NUMBER, HOURS, LEVEL";
+                String lineBreak = "-------------------------------------------------------------------";
+                outputArea.setText(header + "\n" + lineBreak);
+            }
+            case SECTIONS -> {
+                String header = "COURSE, SECTION NO., SEMESTER, YEAR";
+                String lineBreak = "--------------------------------------------------------------";
+                outputArea.setText(header + "\n" + lineBreak);
+            }
+        }
     }
 }

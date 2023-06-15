@@ -28,7 +28,7 @@ public class CustomJFrame extends JFrame {
         setSize(WIDTH, HEIGHT);
         setTitle("Intro to Databases Project");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-//        setResizable(false);
+        setResizable(false);
 
         ADD_STUDENT.setDataHandler(dataHandler);
         ADD_DEPT_COURSE.setDataHandler(dataHandler);
