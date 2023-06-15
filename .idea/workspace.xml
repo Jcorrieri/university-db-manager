@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Jcorrieri &lt;jacomocorrieri@gmail.com&gt;" />
+        <option value="Jacomo C &lt;128883491+jcorrieri@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f2dfa115-6983-4be5-b172-8acc4dcd3785" />
+        <option name="url" value="https://github.com/Jcorrieri/DB_PROJ_G2.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QyxjM4C1F8ziGx6FqExasO788T" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jacom/OneDrive/Documents/UNF &amp; CompSci/Coding/Java/DB_PROJ_GUI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="api.Main" />
+      <module name="DB_PROJ_GUI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="" />
+      <created>1686339760154</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686339760154</updated>
+      <workItem from="1686339761571" duration="271000" />
+      <workItem from="1686362177146" duration="115000" />
+      <workItem from="1686583145773" duration="798000" />
+      <workItem from="1686584485799" duration="652000" />
+      <workItem from="1686585157310" duration="91000" />
+      <workItem from="1686585264996" duration="1720000" />
+      <workItem from="1686588748819" duration="661000" />
+      <workItem from="1686670555181" duration="2371000" />
+      <workItem from="1686687341929" duration="373000" />
+      <workItem from="1686687786121" duration="4000" />
+      <workItem from="1686707913047" duration="2258000" />
+      <workItem from="1686792704735" duration="505000" />
+      <workItem from="1686841004854" duration="4388000" />
+    </task>
+    <task id="LOCAL-00001" summary="asdasd">
+      <created>1686584617449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686584617449</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Remove test code">
+      <created>1686585864221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686585864221</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Remove test code">
+      <created>1686672310697</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686672310697</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add quotes for string input">
+      <created>1686708258936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686708258936</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Prepare functionality to retrieve views">
+      <created>1686841593678</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686841593678</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ViewDialog: Prepare functionality to retrieve views&#10;CustomJFrame: Resizable set to false">
+      <created>1686844589860</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686844589860</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Organize generateView header messages">
+      <created>1686844936712</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686844936712</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add comment">
+      <created>1686845093793</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686845093793</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add generateQuery() to Main">
+      <created>1686845678283</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686845678283</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="asdasd" />
+    <MESSAGE value="Add quotes for string input" />
+    <MESSAGE value="Prepare functionality to retrieve views" />
+    <MESSAGE value="ViewDialog: Prepare functionality to retrieve views&#10;CustomJFrame: Resizable set to false" />
+    <MESSAGE value="Organize generateView header messages" />
+    <MESSAGE value="Add comment" />
+    <MESSAGE value="Add generateQuery() to Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add generateQuery() to Main" />
+  </component>
+</project>
