@@ -65,12 +65,12 @@ public class ViewDialog extends JDialog {
         gbc.gridx = 0; gbc.gridy = 0;
         add(inputLabel, gbc);
 
-        gbc.gridx = 1;
-        JTextField inputField = new JTextField(14);
+        gbc.gridx = 0; gbc.gridwidth = 2;
+        JTextField inputField = new JTextField(15);
         inputField.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
         add(inputField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
+        gbc.gridx = 0; gbc.gridy = 2;
         JButton submit = new JButton( text[text.length - 1] );
         submit.setFocusPainted(false);
         submit.addActionListener(e -> generateView(type));

@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="Add generateQuery() to Main">
-      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/ViewDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/ViewDialog.class" afterDir="false" />
+    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="fix generateView()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/dialogs/ViewDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/dialogs/ViewDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +91,7 @@
       <workItem from="1686707913047" duration="2258000" />
       <workItem from="1686792704735" duration="505000" />
       <workItem from="1686841004854" duration="4388000" />
-      <workItem from="1686862213920" duration="302000" />
+      <workItem from="1686862213920" duration="936000" />
     </task>
     <task id="LOCAL-00001" summary="asdasd">
       <created>1686584617449</created>
@@ -163,7 +163,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686862354033</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix generateView()">
+      <created>1686862541023</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686862541023</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix generateView()">
+      <created>1686862571716</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686862571716</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +214,7 @@
     <MESSAGE value="Organize generateView header messages" />
     <MESSAGE value="Add comment" />
     <MESSAGE value="Add generateQuery() to Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add generateQuery() to Main" />
+    <MESSAGE value="fix generateView()" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix generateView()" />
   </component>
 </project>
