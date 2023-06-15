@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="" />
+    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="Add generateQuery() to Main">
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/ViewDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/ViewDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/dialogs/ViewDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/dialogs/ViewDialog.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +91,7 @@
       <workItem from="1686707913047" duration="2258000" />
       <workItem from="1686792704735" duration="505000" />
       <workItem from="1686841004854" duration="4388000" />
+      <workItem from="1686862213920" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="asdasd">
       <created>1686584617449</created>
@@ -152,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686845678283</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add generateQuery() to Main">
+      <created>1686862354033</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686862354033</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
