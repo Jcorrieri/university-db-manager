@@ -78,6 +78,7 @@ public class ViewDialog extends JDialog {
     }
 
     private void generateView(int type) {
+        // Very real very legit code
         String lineBreak = "-----------------------------------------------------------------------------------------";
 
         switch (type) {
