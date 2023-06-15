@@ -10,6 +10,7 @@ import static gui.CustomJPanel.*;
 public class ViewDialog extends JDialog {
 
     private final GridBagConstraints gbc = new GridBagConstraints();
+    JTextArea outputArea = new JTextArea(12, 30);
 
     public ViewDialog(CustomJFrame frame, int type) {
         super(frame, "View Dialog", true);
@@ -39,7 +40,6 @@ public class ViewDialog extends JDialog {
         gbc.insets = new Insets(0, 0, 0, 0);
 
         gbc.gridy = 3; gbc.gridwidth = 2;
-        JTextArea outputArea = new JTextArea(12, 30);
         outputArea.setEditable(false);
 
         JScrollPane outputScrollPane = new JScrollPane(outputArea);
@@ -72,6 +72,11 @@ public class ViewDialog extends JDialog {
         gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
         JButton submit = new JButton( text[text.length - 1] );
         submit.setFocusPainted(false);
+        submit.addActionListener(e -> getView(type));
         add(submit, gbc);
+    }
+
+    private void getView(int type) {
+        //
     }
 }
