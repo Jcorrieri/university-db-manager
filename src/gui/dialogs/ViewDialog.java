@@ -1,5 +1,6 @@
 package gui.dialogs;
 
+import api.Main;
 import gui.CustomJFrame;
 
 import javax.swing.*;
@@ -96,5 +97,6 @@ public class ViewDialog extends JDialog {
                 outputArea.setText(header + "\n" + lineBreak);
             }
         }
+        outputArea.setText( Main.generateQuery(type) );
     }
 }
