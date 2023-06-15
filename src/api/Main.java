@@ -4,6 +4,7 @@ import gui.CustomJFrame;
 import static gui.CustomJPanel.GRADE_REPORT;
 import static gui.CustomJPanel.COURSES;
 import static gui.CustomJPanel.SECTIONS;
+import static gui.CustomJPanel.GEN_STD_INFO;
 
 public class Main {
 
@@ -15,7 +16,7 @@ public class Main {
         base.setVisible(true);
     }
 
-    // 'type' can be GRADE_REPORT, COURSES, or SECTIONS
+    // 'type' can be GRADE_REPORT, GEN_STD_INFO, COURSES, or SECTIONS
     public static String generateQuery(int type) {
         String query, result;
         result = "";
