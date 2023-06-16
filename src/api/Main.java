@@ -66,21 +66,6 @@ public class Main {
         return result;
     }
 
-    // Getter methods for logging purposes
-    public static ArrayList<String> getStudentLog() { return students; }
-
-    public static ArrayList<String> getInstructorLog() { return instructors; }
-
-    public static ArrayList<String> getDeptLog() { return departments; }
-
-    public static ArrayList<String> getCourseLog() { return courses; }
-
-    public static ArrayList<String> getSectionLog() { return sections; }
-
-    public static ArrayList<String> getSectStudentLog() { return sectStudents; }
-
-    public static ArrayList<String> getGradeLog() { return grades; }
-
     /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
      *    USE THESE METHODS TO SEND ENTITY DATA TO PROGRAM    *
      *           (Return false if entry is invalid)           *
@@ -127,4 +112,19 @@ public class Main {
         grades.add(gradeData);
         return true;
     }
+
+    // Getter methods for logging purposes
+    public static ArrayList<String> getStudentLog() { return students; }
+
+    public static ArrayList<String> getInstructorLog() { return instructors; }
+
+    public static ArrayList<String> getDeptLog() { return departments; }
+
+    public static ArrayList<String> getCourseLog() { return courses; }
+
+    public static ArrayList<String> getSectionLog() { return sections; }
+
+    public static ArrayList<String> getSectStudentLog() { return sectStudents; }
+
+    public static ArrayList<String> getGradeLog() { return grades; }
 }
