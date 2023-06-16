@@ -1,6 +1,6 @@
 package gui.dialogs;
 
-import api.DataHandler;
+import api.Main;
 import gui.CustomJFrame;
 
 import javax.swing.*;
@@ -13,7 +13,7 @@ public class EntityLog extends JDialog {
 
     private final GridBagConstraints gbc = new GridBagConstraints();
 
-    public EntityLog(CustomJFrame frame, int type, DataHandler dataHandler) {
+    public EntityLog(CustomJFrame frame, int type) {
         super(frame, "Entity Log", true);
         setSize(595, 350);
         setResizable(false);
@@ -24,13 +24,13 @@ public class EntityLog extends JDialog {
         gbc.gridy = 1; gbc.gridwidth = 2;
 
         switch (type) {
-            case STUDENTS_TO_DB -> initLog("Student Log", dataHandler.getStudentLog());
-            case INSTRUCTORS -> initLog("Instructor Log", dataHandler.getInstructorLog());
-            case DEPARTMENTS -> initLog("Department Log", dataHandler.getDeptLog());
-            case COURSES -> initLog("Course Log", dataHandler.getCourseLog());
-            case SECTIONS -> initLog("Section Log", dataHandler.getSectionLog());
-            case STUDENTS_TO_SECTION -> initLog("Section Student Log", dataHandler.getSectStudentLog());
-            case GRADE_REPORT -> initLog("Grade Log", dataHandler.getGradeLog());
+            case STUDENTS_TO_DB -> initLog("Student Log", Main.getStudentLog());
+            case INSTRUCTORS -> initLog("Instructor Log", Main.getInstructorLog());
+            case DEPARTMENTS -> initLog("Department Log", Main.getDeptLog());
+            case COURSES -> initLog("Course Log", Main.getCourseLog());
+            case SECTIONS -> initLog("Section Log", Main.getSectionLog());
+            case STUDENTS_TO_SECTION -> initLog("Section Student Log", Main.getSectStudentLog());
+            case GRADE_REPORT -> initLog("Grade Log", Main.getGradeLog());
             default -> { return; }
         }
 

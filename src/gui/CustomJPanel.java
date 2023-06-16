@@ -1,6 +1,6 @@
 package gui;
 
-import api.DataHandler;
+import api.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class CustomJPanel extends JPanel {
 
     public static final int STUDENTS_TO_DB = 0, INSTRUCTORS = 1, DEPARTMENTS = 2, COURSES = 3, SECTIONS = 4;
-    public static final int STUDENTS_TO_SECTION = 5, GRADE_REPORT = 6, GEN_STD_INFO = 7;
-    protected DataHandler dataHandler;
+    public static final int STUDENTS_TO_SECTION = 5, GRADE_REPORT = 6, GRD_STD_INFO = 7;
 
     public CustomJPanel() {
         super();
@@ -51,13 +50,13 @@ public class CustomJPanel extends JPanel {
 
         boolean valid = false;
         switch (type) {
-            case STUDENTS_TO_DB -> valid = dataHandler.addStudentToDatabase(data.toString());
-            case INSTRUCTORS -> valid = dataHandler.addInstructor(data.toString());
-            case DEPARTMENTS -> valid = dataHandler.addDepartment(data.toString());
-            case COURSES -> valid = dataHandler.addCourse(data.toString());
-            case SECTIONS -> valid = dataHandler.addSection(data.toString());
-            case GRADE_REPORT -> valid = dataHandler.addGrade(data.toString());
-            case STUDENTS_TO_SECTION -> valid = dataHandler.addStudentToSection(data.toString());
+            case STUDENTS_TO_DB -> valid = Main.addStudentToDatabase(data.toString());
+            case INSTRUCTORS -> valid = Main.addInstructor(data.toString());
+            case DEPARTMENTS -> valid = Main.addDepartment(data.toString());
+            case COURSES -> valid = Main.addCourse(data.toString());
+            case SECTIONS -> valid = Main.addSection(data.toString());
+            case GRADE_REPORT -> valid = Main.addGrade(data.toString());
+            case STUDENTS_TO_SECTION -> valid = Main.addStudentToSection(data.toString());
             default -> System.out.println(data);
         }
 
@@ -68,6 +67,4 @@ public class CustomJPanel extends JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Entry", "Entity not added", JOptionPane.ERROR_MESSAGE);
         }
     }
-
-    public void setDataHandler(DataHandler dataHandler) { this.dataHandler = dataHandler; }
 }

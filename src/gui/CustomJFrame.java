@@ -1,6 +1,5 @@
 package gui;
 
-import api.DataHandler;
 import gui.dialogs.EntityLog;
 import gui.dialogs.ViewDialog;
 import gui.panels.DepartmentCoursePanel;
@@ -15,7 +14,6 @@ public class CustomJFrame extends JFrame {
 
     public static final int WIDTH = 1000, HEIGHT = 720;
     private JPanel currentPanel;
-    private final DataHandler dataHandler;
     private final JMenuBar menuBar;
 
     private final CustomJPanel ADD_STUDENT = new StudentToDbPanel();
@@ -23,19 +21,13 @@ public class CustomJFrame extends JFrame {
     private final CustomJPanel ADD_INST_SECT = new InstructorSectionPanel();
     private final CustomJPanel ADD_STD_COURSE = new StudentToSectionPanel();
 
-    public CustomJFrame(DataHandler dataHandler) {
+    public CustomJFrame() {
         super();
         setSize(WIDTH, HEIGHT);
         setTitle("Intro to Databases Project");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
-        ADD_STUDENT.setDataHandler(dataHandler);
-        ADD_DEPT_COURSE.setDataHandler(dataHandler);
-        ADD_INST_SECT.setDataHandler(dataHandler);
-        ADD_STD_COURSE.setDataHandler(dataHandler);
-
-        this.dataHandler = dataHandler;
         menuBar = new JMenuBar();
         menuBar.setPreferredSize(new Dimension(WIDTH, 25));
 
@@ -102,13 +94,13 @@ public class CustomJFrame extends JFrame {
         JMenuItem sectionStudentLog = new JMenuItem("Section Students");
         JMenuItem gradeLog = new JMenuItem("Grades");
 
-        studentLog.addActionListener(e -> new EntityLog(this, CustomJPanel.STUDENTS_TO_DB, dataHandler));
-        instructorLog.addActionListener(e -> new EntityLog(this, CustomJPanel.INSTRUCTORS, dataHandler));
-        deptLog.addActionListener(e -> new EntityLog(this, CustomJPanel.DEPARTMENTS, dataHandler));
-        courseLog.addActionListener(e -> new EntityLog(this, CustomJPanel.COURSES, dataHandler));
-        sectionLog.addActionListener(e -> new EntityLog(this, CustomJPanel.SECTIONS, dataHandler));
-        sectionStudentLog.addActionListener(e -> new EntityLog(this, CustomJPanel.STUDENTS_TO_SECTION, dataHandler));
-        gradeLog.addActionListener(e -> new EntityLog(this, CustomJPanel.GRADE_REPORT, dataHandler));
+        studentLog.addActionListener(e -> new EntityLog(this, CustomJPanel.STUDENTS_TO_DB));
+        instructorLog.addActionListener(e -> new EntityLog(this, CustomJPanel.INSTRUCTORS));
+        deptLog.addActionListener(e -> new EntityLog(this, CustomJPanel.DEPARTMENTS));
+        courseLog.addActionListener(e -> new EntityLog(this, CustomJPanel.COURSES));
+        sectionLog.addActionListener(e -> new EntityLog(this, CustomJPanel.SECTIONS));
+        sectionStudentLog.addActionListener(e -> new EntityLog(this, CustomJPanel.STUDENTS_TO_SECTION));
+        gradeLog.addActionListener(e -> new EntityLog(this, CustomJPanel.GRADE_REPORT));
 
         logMenu.add(studentLog);
         logMenu.add(instructorLog);

@@ -73,11 +73,11 @@ public class ViewDialog extends JDialog {
         gbc.gridx = 0; gbc.gridy = 2;
         JButton submit = new JButton( text[text.length - 1] );
         submit.setFocusPainted(false);
-        submit.addActionListener(e -> generateView(type));
+        submit.addActionListener(e -> generateView(type, submit.getText()));
         add(submit, gbc);
     }
 
-    private void generateView(int type) {
+    private void generateView(int type, String input) {
         // Very real very legit code
         String lineBreak = "-----------------------------------------------------------------------------------------";
 
@@ -86,7 +86,7 @@ public class ViewDialog extends JDialog {
                 String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER, TOTAL GPA";
                 String header2 = "COURSE NO., SECTION NO., LETTER GRADE, POINTS EARNED";
                 outputArea.setText(header1 + "\n" + lineBreak + "\n");
-                outputArea.append( Main.generateQuery(GEN_STD_INFO) );
+                outputArea.append( Main.generateQuery(GRD_STD_INFO, input) );
                 outputArea.append(header2 + "\n" + lineBreak);
             }
             case COURSES -> {
@@ -98,6 +98,6 @@ public class ViewDialog extends JDialog {
                 outputArea.setText(header + "\n" + lineBreak);
             }
         }
-        outputArea.append( Main.generateQuery(type) );
+        outputArea.append( Main.generateQuery(type, input) );
     }
 }
