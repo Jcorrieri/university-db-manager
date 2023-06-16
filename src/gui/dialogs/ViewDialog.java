@@ -86,7 +86,7 @@ public class ViewDialog extends JDialog {
                 String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER, TOTAL GPA";
                 String header2 = "COURSE NO., SECTION NO., LETTER GRADE, POINTS EARNED";
                 outputArea.setText(header1 + "\n" + lineBreak + "\n");
-                outputArea.append( Main.generateQuery(GEN_STD_INFO));
+                outputArea.append( Main.generateQuery(GEN_STD_INFO) );
                 outputArea.append(header2 + "\n" + lineBreak);
             }
             case COURSES -> {
