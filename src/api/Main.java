@@ -116,7 +116,8 @@ public class Main {
         else
             pstmt.setString(7, address);
 
-        pstmt.executeUpdate();
+        int NumRows = pstmt.executeUpdate();
+        System.out.println(NumRows + " row(s) inserted");
     }
 
     public static boolean addStudentToDatabase(ArrayList<String> studentData) {
