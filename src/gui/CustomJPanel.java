@@ -13,7 +13,7 @@ public class CustomJPanel extends JPanel {
 
     public CustomJPanel() {
         super();
-        setLayout(new GridBagLayout()); // Using GridBag layout -- see Oracle tutorial
+        setLayout(new GridBagLayout());
     }
 
     public void clearFields(ArrayList<JTextField> fields) {
