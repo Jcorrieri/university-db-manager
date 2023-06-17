@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="Adjust view fields">
+    <list default="true" id="6ca5b8ef-12bc-44fd-a2de-4ebaf456903c" name="Changes" comment="Reoganize code structure">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_9_2023_3_41_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_9_2023_3_41_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_PROJ_GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DB_PROJ_GUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/DataHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CustomJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CustomJFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/api/DataHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/api/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/api/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/CustomJFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/CustomJFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/CustomJPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/CustomJPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/EntityLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/EntityLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/ViewDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB_PROJ_GUI/gui/dialogs/ViewDialog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/CustomJPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CustomJPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/dialogs/EntityLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/dialogs/EntityLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/dialogs/ViewDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/dialogs/ViewDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,23 +52,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Users/Jacomo/Downloads/ojdbc11.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Jacomo/Downloads/ojdbc11.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jacom\OneDrive\Documents\UNF &amp; CompSci\Coding\Java\DB_PROJ_GUI\.idea" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="api.Main" />
@@ -98,7 +106,10 @@
       <workItem from="1686792704735" duration="505000" />
       <workItem from="1686841004854" duration="4388000" />
       <workItem from="1686862213920" duration="1523000" />
-      <workItem from="1686876633867" duration="3693000" />
+      <workItem from="1686876633867" duration="4927000" />
+      <workItem from="1686882752912" duration="647000" />
+      <workItem from="1686933027963" duration="598000" />
+      <workItem from="1686963267599" duration="199000" />
     </task>
     <task id="LOCAL-00001" summary="asdasd">
       <created>1686584617449</created>
@@ -205,7 +216,28 @@
       <option name="project" value="LOCAL" />
       <updated>1686877633048</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Adjust view fields">
+      <created>1686880875891</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686880875891</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Reoganize code structure">
+      <created>1686880933369</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686880933369</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Reoganize code structure">
+      <created>1686881057659</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686881057659</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +276,7 @@
     <MESSAGE value="Add generateQuery() to Main" />
     <MESSAGE value="fix generateView()" />
     <MESSAGE value="Adjust view fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust view fields" />
+    <MESSAGE value="Reoganize code structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reoganize code structure" />
   </component>
 </project>

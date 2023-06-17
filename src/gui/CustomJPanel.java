@@ -21,7 +21,7 @@ public class CustomJPanel extends JPanel {
             field.setText("");
     }
 
-    // Add form data to dataHandler and send to program for processing
+    // Add form data to Main (comma-separated format)
     public void confirmAdd(String message, ArrayList<JTextField> fields, int type) {
         int option = JOptionPane.showConfirmDialog(this, message, "Confirm Action", JOptionPane.YES_NO_OPTION);
 
@@ -30,6 +30,7 @@ public class CustomJPanel extends JPanel {
 
         StringBuilder data = new StringBuilder();
 
+        // Surround strings with double-quotes
         for (int i = 0; i < fields.size(); i++) {
             String value = fields.get(i).getText();
 
