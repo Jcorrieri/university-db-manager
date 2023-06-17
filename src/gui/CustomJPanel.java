@@ -28,36 +28,20 @@ public class CustomJPanel extends JPanel {
         if (option != JOptionPane.OK_OPTION)
             return;
 
-        StringBuilder data = new StringBuilder();
+        ArrayList<String> data = new ArrayList<>();
 
-        // Surround strings with double-quotes
-        for (int i = 0; i < fields.size(); i++) {
-            String value = fields.get(i).getText();
-
-            boolean isString = false;
-            try {
-                Integer.parseInt(value);
-            } catch (NumberFormatException e) {
-                isString = true;
-                data.append('"');
-            }
-
-            data.append(value);
-            if (isString)
-                data.append('"');
-            if (i != fields.size() - 1)
-                data.append(",");
-        }
+        // Add data
+        for (JTextField field : fields) data.add(field.getText());
 
         boolean valid = false;
         switch (type) {
-            case STUDENTS_TO_DB -> valid = Main.addStudentToDatabase(data.toString());
-            case INSTRUCTORS -> valid = Main.addInstructor(data.toString());
-            case DEPARTMENTS -> valid = Main.addDepartment(data.toString());
-            case COURSES -> valid = Main.addCourse(data.toString());
-            case SECTIONS -> valid = Main.addSection(data.toString());
-            case GRADE_REPORT -> valid = Main.addGrade(data.toString());
-            case STUDENTS_TO_SECTION -> valid = Main.addStudentToSection(data.toString());
+            case STUDENTS_TO_DB -> valid = Main.addStudentToDatabase(data);
+            case INSTRUCTORS -> valid = Main.addInstructor(data);
+            case DEPARTMENTS -> valid = Main.addDepartment(data);
+            case COURSES -> valid = Main.addCourse(data);
+            case SECTIONS -> valid = Main.addSection(data);
+            case GRADE_REPORT -> valid = Main.addGrade(data);
+            case STUDENTS_TO_SECTION -> valid = Main.addStudentToSection(data);
             default -> System.out.println(data);
         }
 
