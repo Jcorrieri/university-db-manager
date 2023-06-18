@@ -202,6 +202,7 @@ public class Main {
             int numRows = pstmt.executeUpdate();
             System.out.println(numRows + " row(s) inserted");
 
+            // Add the major
             if (!major.equals("")) {
                 pstmt = conn.prepareStatement("INSERT INTO MAJORS_IN(NNUMBER, DEPT_CODE) " +
                         "VALUES (?, ?)");
@@ -212,6 +213,7 @@ public class Main {
                 pstmt.executeUpdate();
             }
 
+            // Add any minors
             if (!minor.equals("")) {
                 pstmt = conn.prepareStatement("INSERT INTO MINORS_IN(NNUMBER, DEPT_CODE) " +
                         "VALUES (?, ?)");
