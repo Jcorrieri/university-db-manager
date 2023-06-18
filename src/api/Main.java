@@ -201,6 +201,27 @@ public class Main {
 
             int numRows = pstmt.executeUpdate();
             System.out.println(numRows + " row(s) inserted");
+
+            if (!major.equals("")) {
+                pstmt = conn.prepareStatement("INSERT INTO MAJORS_IN(NNUMBER, DEPT_CODE) " +
+                        "VALUES (?, ?)");
+
+                pstmt.setString(1, nNumber); // Cannot be null
+                pstmt.setString(2, major); // Cannot be null
+
+                pstmt.executeUpdate();
+            }
+
+            if (!minor.equals("")) {
+                pstmt = conn.prepareStatement("INSERT INTO MINORS_IN(NNUMBER, DEPT_CODE) " +
+                        "VALUES (?, ?)");
+
+                pstmt.setString(1, nNumber); // Cannot be null
+                pstmt.setString(2, minor); // Cannot be null
+
+                pstmt.executeUpdate();
+            }
+
         } catch (SQLException | NumberFormatException e) {
             return false;
         }
