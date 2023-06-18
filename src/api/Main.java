@@ -116,8 +116,7 @@ public class Main {
         else
             pstmt.setString(7, address);
 
-        int NumRows = pstmt.executeUpdate();
-        System.out.println(NumRows + " row(s) inserted");
+        pstmt.executeUpdate();
     }
 
     public static boolean addStudentToDatabase(ArrayList<String> studentData) {
@@ -152,15 +151,57 @@ public class Main {
              * 'nNumber', 'birthdate', 'sex', 'perm_phone', 'perm_state', 'perm_city', 'perm_zip', 'class', 'degree'
              * Prepare to insert new student into the STUDENT table
              */
-//            PreparedStatement pstmt2 =
-//                    conn.prepareStatement ("INSERT INTO STUDENT(NNUMBER, BIRTHDATE, SEX, PERM_PHONE, " +
-//                            "PERM_STATE, PERM_CITY, PERM_ZIP, CLASS, DEGREE) " +
-//                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement pstmt =
+                    conn.prepareStatement ("INSERT INTO STUDENT(NNUMBER, BIRTHDATE, SEX, PERM_PHONE, " +
+                            "PERM_STATE, PERM_CITY, PERM_ZIP, CLASS_LEVEL, DEGREE_PROGRAM) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-//            Date pindate = Date.valueOf(tmppindate); // this converts the String object into a Date object
+            pstmt.setString(1, nNumber); // Cannot be null
 
+            // Must check if null
+            if (birthdate.equals(""))
+                pstmt.setNull(2, Types.DATE);
+            else // this converts the String object into a Date object (yyyy-mm-dd)
+                pstmt.setDate(2, Date.valueOf(birthdate));
 
-        } catch (SQLException e) {
+            if (sex.equals(""))
+                pstmt.setNull(3, Types.CHAR);
+            else
+                pstmt.setString(3, sex);
+
+            if (permPhone.equals(""))
+                pstmt.setNull(4, Types.CHAR);
+            else
+                pstmt.setString(4, permPhone);
+
+            if (permState.equals(""))
+                pstmt.setNull(5, Types.CHAR);
+            else
+                pstmt.setString(5, permState);
+
+            if (permCity.equals(""))
+                pstmt.setNull(6, Types.VARCHAR);
+            else
+                pstmt.setString(6, permCity);
+
+            if (permZip.equals(""))
+                pstmt.setNull(7, Types.INTEGER);
+            else
+                pstmt.setInt(7, Integer.parseInt(permZip));
+
+            if (stdClass.equals(""))
+                pstmt.setNull(8, Types.VARCHAR);
+            else
+                pstmt.setString(8, stdClass);
+
+            if (degree.equals(""))
+                pstmt.setNull(9, Types.VARCHAR);
+            else
+                pstmt.setString(9, degree);
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+        } catch (SQLException | NumberFormatException e) {
             return false;
         }
 
@@ -170,6 +211,7 @@ public class Main {
 
     public static boolean addInstructor(ArrayList<String> instructorData) {
         // Process instructor data and add to database... (Front-end task #1)
+        // Call addPerson()
         instructors.add(instructorData.toString());
         return true;
     }
