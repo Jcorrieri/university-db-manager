@@ -7,10 +7,8 @@ import java.util.ArrayList;
 
 public class Main {
 
-    // Store added entities for logging
-    private static ArrayList<String> students, instructors, departments, courses, sections, sectStudents, grades;
-
     private static Connection conn;
+    public static Logger logger;
 
     public static void main(String[] args) throws SQLException {
         String uid = "G02";
@@ -19,17 +17,9 @@ public class Main {
         String url = "jdbc:oracle:thin:@cisvm-oracle.unfcsd.unf.edu:1521:orcl";
 
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-
         conn = DriverManager.getConnection(url, uid, password);
 
-        // To log added entities
-        students = new ArrayList<>();
-        instructors = new ArrayList<>();
-        departments = new ArrayList<>();
-        courses = new ArrayList<>();
-        sections = new ArrayList<>();
-        sectStudents = new ArrayList<>();
-        grades = new ArrayList<>();
+        logger = new Logger();
 
         CustomJFrame base = new CustomJFrame();
         base.setLocationRelativeTo(null);
@@ -271,59 +261,44 @@ public class Main {
             return false;
         }
 
-        students.add(studentData.toString());
+        logger.logStudent(studentData.toString());
         return true;
     }
 
     public static boolean addInstructor(ArrayList<String> instructorData) {
         // Process instructor data and add to database... (Front-end task #1)
         // Call addPerson()
-        instructors.add(instructorData.toString());
+        logger.logInstructor(instructorData.toString());
         return true;
     }
 
     public static boolean addDepartment(ArrayList<String> departmentData) {
         // Process department data and add to database... (Front-end task #1)
-        departments.add(departmentData.toString());
+        logger.logDepartment(departmentData.toString());
         return true;
     }
 
     public static boolean addCourse(ArrayList<String> courseData) {
         // Process course data and add to database... (Front-end task #1)
-        courses.add(courseData.toString());
+        logger.logCourse(courseData.toString());
         return true;
     }
 
     public static boolean addSection(ArrayList<String> sectionData) {
         // Process section data and add to database... (Front-end task #1)
-        sections.add(sectionData.toString());
+        logger.logSection(sectionData.toString());
         return true;
     }
 
     public static boolean addStudentToSection(ArrayList<String> studentData) {
         // Process section student data and add to database... (Front-end task #2)
-        sectStudents.add(studentData.toString());
+        logger.logSectionStudent(studentData.toString());
         return true;
     }
 
     public static boolean addGrade(ArrayList<String> gradeData) {
         // Process grade data and add to database... (Front-end task #6)
-        grades.add(gradeData.toString());
+        logger.logGrade(gradeData.toString());
         return true;
     }
-
-    // Getter methods for logging purposes
-    public static ArrayList<String> getStudentLog() { return students; }
-
-    public static ArrayList<String> getInstructorLog() { return instructors; }
-
-    public static ArrayList<String> getDeptLog() { return departments; }
-
-    public static ArrayList<String> getCourseLog() { return courses; }
-
-    public static ArrayList<String> getSectionLog() { return sections; }
-
-    public static ArrayList<String> getSectStudentLog() { return sectStudents; }
-
-    public static ArrayList<String> getGradeLog() { return grades; }
 }

@@ -1,12 +1,12 @@
 package gui.dialogs;
 
-import api.Main;
 import gui.CustomJFrame;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static api.Main.logger;
 import static gui.CustomJPanel.*;
 
 public class EntityLog extends JDialog {
@@ -24,13 +24,13 @@ public class EntityLog extends JDialog {
         gbc.gridy = 1; gbc.gridwidth = 2;
 
         switch (type) {
-            case STUDENTS_TO_DB -> initLog("Student Log", Main.getStudentLog());
-            case INSTRUCTORS -> initLog("Instructor Log", Main.getInstructorLog());
-            case DEPARTMENTS -> initLog("Department Log", Main.getDeptLog());
-            case COURSES -> initLog("Course Log", Main.getCourseLog());
-            case SECTIONS -> initLog("Section Log", Main.getSectionLog());
-            case STUDENTS_TO_SECTION -> initLog("Section Student Log", Main.getSectStudentLog());
-            case GRADE_REPORT -> initLog("Grade Log", Main.getGradeLog());
+            case STUDENTS_TO_DB -> initLog("Student Log", logger.getStudentLog());
+            case INSTRUCTORS -> initLog("Instructor Log", logger.getInstructorLog());
+            case DEPARTMENTS -> initLog("Department Log", logger.getDeptLog());
+            case COURSES -> initLog("Course Log", logger.getCourseLog());
+            case SECTIONS -> initLog("Section Log", logger.getSectionLog());
+            case STUDENTS_TO_SECTION -> initLog("Section Student Log", logger.getSectStudentLog());
+            case GRADE_REPORT -> initLog("Grade Log", logger.getGradeLog());
             default -> { return; }
         }
 
