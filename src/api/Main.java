@@ -5,8 +5,6 @@ import gui.CustomJFrame;
 import java.sql.*;
 import java.util.ArrayList;
 
-import static gui.CustomJPanel.*;
-
 public class Main {
 
     // Store added entities for logging
@@ -39,43 +37,73 @@ public class Main {
     }
 
     // 'type' can be GRADE_REPORT, GEN_STD_INFO, COURSES, or SECTIONS
-    public static String generateQuery(int type, String input) {
+    public static String queryGrade(String nNumber) {
         String result = "";
-        String q = "";
+        String q = """
+                    SELECT COURSE_NUM, SECTION_NUM, SEMESTER, YEAR, GRADE
+                    FROM ASSIGNED_TO
+                    WHERE NNUMBER = ?""";
 
-        switch (type) {
-            // Get student info for grade report
-            case GRD_STD_INFO -> q = """
+        double totalGpa = 0;
+        double gpa = 0;
+        int count = 0;
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(q);
+            pstmt.setString(1, nNumber);
+
+            ResultSet resultSet = pstmt.executeQuery();
+
+            while (resultSet.next()) {
+                String course = resultSet.getString("COURSE_NUM");
+                int section = resultSet.getInt("SECTION_NUM");
+                String semester = resultSet.getString("SEMESTER");
+                int year = resultSet.getInt("YEAR");
+
+                String grade = resultSet.getString("GRADE"); // Add grade and calculate GPA
+                switch (grade) {
+                    case "A" -> gpa = 4.0;
+                    case "A-" -> gpa = 3.7;
+                    case "B+" -> gpa = 3.3;
+                    case "B" -> gpa = 3.0;
+                    case "B-" -> gpa = 2.7;
+                    case "C+" -> gpa = 2.3;
+                    case "C" -> gpa = 2.0;
+                    case "D" -> gpa = 1.0;
+                    case "F" -> gpa = 0.0;
+                }
+                totalGpa = (totalGpa + gpa) / ++count;
+
+                result = course + ", " + section + ", " + semester + ", " + year + ", " + gpa;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getErrorCode() + " " + nNumber);
+            return "";
+        }
+        return result;
+    }
+
+    public static String queryStudent(String nNumber) {
+        String result = "";
+        String q = """
                     SELECT F_NAME, L_NAME
                     FROM PERSON
                     WHERE NNUMBER = ?""";
 
-            // Get grade/section info for grade report
-            case GRADE_REPORT -> q = "SELECT...";
-
-            // Get courses in a department
-            case COURSES -> q = "SELECT....";
-
-            // Get sections taught by an instructor
-            case SECTIONS -> q = "SELECT.....";
-        }
-
         try {
             PreparedStatement pstmt = conn.prepareStatement(q);
-            pstmt.setString(1, input);
+            pstmt.setString(1, nNumber);
 
             ResultSet resultSet = pstmt.executeQuery();
 
             while (resultSet.next()) {
                 String firstName = resultSet.getString("F_NAME");
                 String lastName = resultSet.getString("L_NAME");
-                result = firstName + " " + lastName + ", " + input;
+                result = firstName + " " + lastName + ", " + nNumber;
             }
         } catch (SQLException e) {
-            System.out.println(e.getErrorCode() + " " + input);
+            System.out.println(e.getErrorCode() + " " + nNumber);
             return "";
         }
-
         return result;
     }
 

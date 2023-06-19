@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class CustomJPanel extends JPanel {
 
     public static final int STUDENTS_TO_DB = 0, INSTRUCTORS = 1, DEPARTMENTS = 2, COURSES = 3, SECTIONS = 4;
-    public static final int STUDENTS_TO_SECTION = 5, GRADE_REPORT = 6, GRD_STD_INFO = 7;
+    public static final int STUDENTS_TO_SECTION = 5, GRADE_REPORT = 6;
 
     public CustomJPanel() {
         super();

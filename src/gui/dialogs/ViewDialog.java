@@ -83,10 +83,10 @@ public class ViewDialog extends JDialog {
 
         switch (type) {
             case GRADE_REPORT -> {
-                String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER, TOTAL GPA";
+                String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER";
                 String header2 = "COURSE NO., SECTION NO., LETTER GRADE, POINTS EARNED";
                 outputArea.setText(header1 + "\n" + lineBreak + "\n");
-                outputArea.append(Main.generateQuery(GRD_STD_INFO, input) + "\n");
+                outputArea.append(Main.queryStudent(input) + "\n");
                 outputArea.append(lineBreak + "\n" + header2 + "\n" + lineBreak);
             }
             case COURSES -> {
@@ -98,6 +98,5 @@ public class ViewDialog extends JDialog {
                 outputArea.setText(header + "\n" + lineBreak);
             }
         }
-        outputArea.append( Main.generateQuery(type, input) );
     }
 }
