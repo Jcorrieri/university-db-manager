@@ -88,7 +88,10 @@ public class ViewDialog extends JDialog {
                 outputArea.setText(header1 + "\n" + lineBreak + "\n");
                 outputArea.append(Main.queryStudent(input) + "\n");
                 outputArea.append(lineBreak + "\n" + header2 + "\n" + lineBreak + "\n");
-                outputArea.append(Main.queryGrade(input));
+
+                String[] gradeQuery = Main.queryGrade(input); // IDK if this works tbh plz check
+
+                outputArea.append(gradeQuery[0] + gradeQuery[1]);
             }
             case COURSES -> {
                 String header = "NAME, DESCRIPTION, NUMBER, HOURS, LEVEL";

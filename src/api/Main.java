@@ -37,7 +37,7 @@ public class Main {
     }
 
     // 'type' can be GRADE_REPORT, GEN_STD_INFO, COURSES, or SECTIONS
-    public static String queryGrade(String nNumber) {
+    public static String[] queryGrade(String nNumber) {
         String result = "";
         String q = """
                     SELECT COURSE_NUM, SECTION_NUM, SEMESTER, YEAR, GRADE
@@ -73,13 +73,13 @@ public class Main {
                 }
                 totalGpa = (totalGpa + gpa) / ++count;
 
-                result = course + ", " + section + ", " + semester + ", " + year + ", " + gpa;
+                result = course + ", " + section + ", " + semester + ", " + year + ", " + gpa + "\n";
             }
         } catch (SQLException e) {
             System.out.println(e.getErrorCode() + " " + nNumber);
-            return "";
+            return new String[]{"",""};
         }
-        return result;
+        return new String[]{result, "" + totalGpa};
     }
 
     public static String queryStudent(String nNumber) {
