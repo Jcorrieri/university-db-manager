@@ -44,19 +44,35 @@ public class Main {
         String q = "";
 
         switch (type) {
+            // Get student info for grade report
             case GRD_STD_INFO -> q = """
-                    SELECT F_name, L_name, Nnumber
+                    SELECT F_NAME, L_NAME
                     FROM PERSON
-                    WHERE Nnumber = ?""";
+                    WHERE NNUMBER = ?""";
+
+            // Get grade/section info for grade report
             case GRADE_REPORT -> q = "SELECT...";
+
+            // Get courses in a department
             case COURSES -> q = "SELECT....";
+
+            // Get sections taught by an instructor
             case SECTIONS -> q = "SELECT.....";
         }
 
         try {
             PreparedStatement pstmt = conn.prepareStatement(q);
             pstmt.setString(1, input);
+
+            ResultSet resultSet = pstmt.executeQuery();
+
+            while (resultSet.next()) {
+                String firstName = resultSet.getString("F_NAME");
+                String lastName = resultSet.getString("L_NAME");
+                result = firstName + " " + lastName + ", " + input;
+            }
         } catch (SQLException e) {
+            System.out.println(e.getErrorCode() + " " + input);
             return "";
         }
 

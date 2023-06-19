@@ -73,7 +73,7 @@ public class ViewDialog extends JDialog {
         gbc.gridx = 0; gbc.gridy = 2;
         JButton submit = new JButton( text[text.length - 1] );
         submit.setFocusPainted(false);
-        submit.addActionListener(e -> generateView(type, submit.getText()));
+        submit.addActionListener(e -> generateView(type, inputField.getText()));
         add(submit, gbc);
     }
 
@@ -86,8 +86,8 @@ public class ViewDialog extends JDialog {
                 String header1 = "FIRST_NAME, LAST_NAME, N_NUMBER, TOTAL GPA";
                 String header2 = "COURSE NO., SECTION NO., LETTER GRADE, POINTS EARNED";
                 outputArea.setText(header1 + "\n" + lineBreak + "\n");
-                outputArea.append( Main.generateQuery(GRD_STD_INFO, input) );
-                outputArea.append(header2 + "\n" + lineBreak);
+                outputArea.append(Main.generateQuery(GRD_STD_INFO, input) + "\n");
+                outputArea.append(lineBreak + "\n" + header2 + "\n" + lineBreak);
             }
             case COURSES -> {
                 String header = "NAME, DESCRIPTION, NUMBER, HOURS, LEVEL";
