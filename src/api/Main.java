@@ -36,7 +36,6 @@ public class Main {
         base.setVisible(true);
     }
 
-    // 'type' can be GRADE_REPORT, GEN_STD_INFO, COURSES, or SECTIONS
     public static String[] queryGrade(String nNumber) {
         String result = "";
         String q = """
