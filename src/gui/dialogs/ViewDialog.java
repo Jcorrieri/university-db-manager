@@ -81,8 +81,8 @@ public class ViewDialog extends JDialog {
         submit.addActionListener(e -> {
             if (type == COURSES) {
                 deptInputType = Objects.equals(inputComboBox.getSelectedItem(), text[1]) ? DEPT_NAME : DEPT_CODE;
-                generateView(type, inputField.getText());
             }
+            generateView(type, inputField.getText());
         });
         add(submit, gbc);
     }
