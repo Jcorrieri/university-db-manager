@@ -91,7 +91,7 @@ public class Main {
             while (resultSet.next()) {
                 String firstName = resultSet.getString("F_NAME");
                 String lastName = resultSet.getString("L_NAME");
-                result = firstName + " " + lastName + ", " + nNumber;
+                result = firstName + ",   " + lastName + ",   " + nNumber;
             }
         } catch (SQLException e) {
             System.out.println(e.getErrorCode() + " " + nNumber);
@@ -266,21 +266,21 @@ public class Main {
         String name = courseData.get(0);
         String description = courseData.get(1);
         String courseNum = courseData.get(2);
-        String dept = courseData.get(3);
+        String deptCode = courseData.get(3);
         int level = Integer.parseInt(courseData.get(4));
         int hours = Integer.parseInt(courseData.get(5));
 
         try {
             PreparedStatement pstmt =
                     conn.prepareStatement ("INSERT INTO COURSE(COURSE_NAME, COURSE_DESC, COURSE_NUM, SEM_HOURS, " +
-                            "COURSE_LVL, OFFERING_DEPT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            "COURSE_LVL, OFFERING_DEPT) VALUES (?, ?, ?, ?, ?, ?)");
 
             pstmt.setString(1, name);
             pstmt.setString(2, description);
             pstmt.setString(3, courseNum);
             pstmt.setInt(4, hours);
             pstmt.setInt(5, level);
-            pstmt.setString(6, dept);
+            pstmt.setString(6, deptCode);
 
             int numRows = pstmt.executeUpdate();
             System.out.println(numRows + " row(s) inserted");
