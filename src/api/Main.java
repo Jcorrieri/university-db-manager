@@ -222,8 +222,7 @@ public class Main {
 
             // Add the major
             if (!major.equals("")) {
-                pstmt = conn.prepareStatement("INSERT INTO MAJORS_IN(NNUMBER, DEPT_CODE) " +
-                        "VALUES (?, ?)");
+                pstmt = conn.prepareStatement("INSERT INTO MAJORS_IN(NNUMBER, DEPT_CODE) VALUES (?, ?)");
 
                 pstmt.setString(1, nNumber); // Cannot be null
                 pstmt.setString(2, major); // Cannot be null
@@ -233,15 +232,13 @@ public class Main {
 
             // Add any minors
             if (!minor.equals("")) {
-                pstmt = conn.prepareStatement("INSERT INTO MINORS_IN(NNUMBER, DEPT_CODE) " +
-                        "VALUES (?, ?)");
+                pstmt = conn.prepareStatement("INSERT INTO MINORS_IN(NNUMBER, DEPT_CODE) VALUES (?, ?)");
 
                 pstmt.setString(1, nNumber); // Cannot be null
                 pstmt.setString(2, minor); // Cannot be null
 
                 pstmt.executeUpdate();
             }
-
         } catch (SQLException | NumberFormatException e) {
             return false;
         }
@@ -265,6 +262,32 @@ public class Main {
 
     public static boolean addCourse(ArrayList<String> courseData) {
         // Process course data and add to database... (Front-end task #1)
+
+        String name = courseData.get(0);
+        String description = courseData.get(1);
+        String courseNum = courseData.get(2);
+        String dept = courseData.get(3);
+        int level = Integer.parseInt(courseData.get(4));
+        int hours = Integer.parseInt(courseData.get(5));
+
+        try {
+            PreparedStatement pstmt =
+                    conn.prepareStatement ("INSERT INTO COURSE(COURSE_NAME, COURSE_DESC, COURSE_NUM, SEM_HOURS, " +
+                            "COURSE_LVL, OFFERING_DEPT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            pstmt.setString(1, name);
+            pstmt.setString(2, description);
+            pstmt.setString(3, courseNum);
+            pstmt.setInt(4, hours);
+            pstmt.setInt(5, level);
+            pstmt.setString(6, dept);
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+        } catch (SQLException e) {
+            return false;
+        }
+
         logger.logCourse(courseData.toString());
         return true;
     }
