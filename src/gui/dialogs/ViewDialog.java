@@ -5,13 +5,16 @@ import gui.CustomJFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 import static gui.CustomJPanel.*;
 
 public class ViewDialog extends JDialog {
 
     private final GridBagConstraints gbc = new GridBagConstraints();
-    JTextArea outputArea = new JTextArea(12, 45);
+    public static final int DEPT_NAME = 8, DEPT_CODE = 9;
+    private int deptInputType;
+    private final JTextArea outputArea = new JTextArea(12, 45);
 
     public ViewDialog(CustomJFrame frame, int type) {
         super(frame, "View Dialog", true);
@@ -52,18 +55,20 @@ public class ViewDialog extends JDialog {
     private void initView(String[] text, int type) {
         setTitle(text[0]);
 
-        JComponent inputLabel;
-        if (type == COURSES) {
-            inputLabel = new JComboBox<>( new String[]{ text[1], text[2] } );
-            inputLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 12));
-            inputLabel.setFocusable(false);
-        } else {
-            inputLabel = new JLabel(text[1]);
-            inputLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
-        }
+        // For courses by department
+        JComboBox<String> inputComboBox = new JComboBox<>(new String[]{text[1], text[2]});
+        inputComboBox.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 12));
+        inputComboBox.setFocusable(false);
+
+        // For others
+        JComponent inputLabel = new JLabel(text[1]);
+        inputLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
 
         gbc.gridx = 0; gbc.gridy = 0;
-        add(inputLabel, gbc);
+        if (type == COURSES)
+            add(inputComboBox, gbc);
+        else
+            add(inputLabel, gbc);
 
         gbc.gridx = 0; gbc.gridwidth = 2;
         JTextField inputField = new JTextField(15);
@@ -73,7 +78,12 @@ public class ViewDialog extends JDialog {
         gbc.gridx = 0; gbc.gridy = 2;
         JButton submit = new JButton( text[text.length - 1] );
         submit.setFocusPainted(false);
-        submit.addActionListener(e -> generateView(type, inputField.getText()));
+        submit.addActionListener(e -> {
+            if (type == COURSES) {
+                deptInputType = Objects.equals(inputComboBox.getSelectedItem(), text[1]) ? DEPT_NAME : DEPT_CODE;
+                generateView(type, inputField.getText());
+            }
+        });
         add(submit, gbc);
     }
 
@@ -96,7 +106,7 @@ public class ViewDialog extends JDialog {
             case COURSES -> {
                 String header = "NAME, DESCRIPTION, NUMBER, HOURS, LEVEL";
                 outputArea.setText(header + "\n" + lineBreak + "\n");
-                outputArea.append(Main.queryCourses(input));
+                outputArea.append(Main.queryCourses(input, deptInputType));
             }
             case SECTIONS -> {
                 String header = "COURSE, SECTION NO., SEMESTER, YEAR";

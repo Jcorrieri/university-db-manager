@@ -1,6 +1,7 @@
 package api;
 
 import gui.CustomJFrame;
+import gui.dialogs.ViewDialog;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -101,8 +102,13 @@ public class Main {
     }
 
     // Get the courses offered by a department
-    public static String queryCourses(String input) {
+    public static String queryCourses(String input, int type) {
         // Make sure to differentiate between dept_code and dept_name as they are both valid inputs
+        if (type == ViewDialog.DEPT_NAME) {
+            System.out.println("NAME");
+        } else {
+            System.out.println("CODE");
+        }
 
         return "dummy";
     }
