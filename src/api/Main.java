@@ -75,28 +75,6 @@ public class Main {
         return new String[]{result, "" + (earned / attempted)};
     }
 
-    // Get quality hours for GPA calculation
-    private static int getQualityHours(String course) {
-        try {
-            String q = """
-                    SELECT SEM_HOURS
-                    FROM COURSE
-                    WHERE COURSE_NUM = ?
-                    """;
-            PreparedStatement pstmt = conn.prepareStatement(q);
-            pstmt.setString(1, course);
-            ResultSet resultSet = pstmt.executeQuery();
-
-            int hours = -1;
-            while (resultSet.next())
-                hours = resultSet.getInt("SEM_HOURS");
-
-            return hours;
-        } catch (SQLException e) {
-            return -1;
-        }
-    }
-
     public static String queryStudent(String nNumber) {
         String result = "";
         String q = """
@@ -120,6 +98,41 @@ public class Main {
             return "";
         }
         return result;
+    }
+
+    // Get the courses offered by a department
+    public static String queryCourses(String input) {
+        // Make sure to differentiate between dept_code and dept_name as they are both valid inputs
+
+        return "dummy";
+    }
+
+    // Get the sections a given instructor teaches
+    public static String querySections(String nNumber) {
+        // Instructor nNumber is input
+        return "dummy";
+    }
+
+    // Get quality hours for GPA calculation
+    private static int getQualityHours(String course) {
+        try {
+            String q = """
+                    SELECT SEM_HOURS
+                    FROM COURSE
+                    WHERE COURSE_NUM = ?
+                    """;
+            PreparedStatement pstmt = conn.prepareStatement(q);
+            pstmt.setString(1, course);
+            ResultSet resultSet = pstmt.executeQuery();
+
+            int hours = -1;
+            while (resultSet.next())
+                hours = resultSet.getInt("SEM_HOURS");
+
+            return hours;
+        } catch (SQLException e) {
+            return -1;
+        }
     }
 
     /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *

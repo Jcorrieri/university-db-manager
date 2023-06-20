@@ -95,11 +95,13 @@ public class ViewDialog extends JDialog {
             }
             case COURSES -> {
                 String header = "NAME, DESCRIPTION, NUMBER, HOURS, LEVEL";
-                outputArea.setText(header + "\n" + lineBreak);
+                outputArea.setText(header + "\n" + lineBreak + "\n");
+                outputArea.append(Main.queryCourses(input));
             }
             case SECTIONS -> {
                 String header = "COURSE, SECTION NO., SEMESTER, YEAR";
-                outputArea.setText(header + "\n" + lineBreak);
+                outputArea.setText(header + "\n" + lineBreak + "\n");
+                outputArea.append(Main.querySections(input));
             }
         }
     }
