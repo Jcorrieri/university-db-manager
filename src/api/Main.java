@@ -26,6 +26,7 @@ public class Main {
         base.setVisible(true);
     }
 
+    // Gets the section/grade info for the grade report
     public static String[] queryGrade(String nNumber) {
         String result = "";
         String q = """
@@ -33,9 +34,8 @@ public class Main {
                     FROM ASSIGNED_TO
                     WHERE NNUMBER = ?""";
 
-        double totalGpa = 0;
-        double gpa = 0;
-        int count = 0;
+        double attempted = 0;
+        double earned = 0;
         try {
             PreparedStatement pstmt = conn.prepareStatement(q);
             pstmt.setString(1, nNumber);
@@ -49,26 +49,52 @@ public class Main {
                 int year = resultSet.getInt("YEAR");
 
                 String grade = resultSet.getString("GRADE"); // Add grade and calculate GPA
-                switch (grade) {
-                    case "A" -> gpa = 4.0;
-                    case "A-" -> gpa = 3.7;
-                    case "B+" -> gpa = 3.3;
-                    case "B" -> gpa = 3.0;
-                    case "B-" -> gpa = 2.7;
-                    case "C+" -> gpa = 2.3;
-                    case "C" -> gpa = 2.0;
-                    case "D" -> gpa = 1.0;
-                    case "F" -> gpa = 0.0;
-                }
-                totalGpa = (totalGpa + gpa) / ++count;
 
-                result = course + ", " + section + ", " + semester + ", " + year + ", " + gpa + "\n";
+                double gradePoint = 0;
+                int hours = getQualityHours(course);
+                switch (grade) {
+                    case "A" -> gradePoint = 4.0;
+                    case "A-" -> gradePoint = 3.7;
+                    case "B+" -> gradePoint = 3.3;
+                    case "B" -> gradePoint = 3.0;
+                    case "B-" -> gradePoint = 2.7;
+                    case "C+" -> gradePoint = 2.3;
+                    case "C" -> gradePoint = 2.0;
+                    case "D" -> gradePoint = 1.0;
+                    case "F" -> gradePoint = 0.0;
+                }
+                earned += (gradePoint) * hours;
+                attempted += hours;
+
+                result += course + ", " + section + ", " + semester + ", " + year + ", " + gradePoint + "\n";
             }
         } catch (SQLException e) {
             System.out.println(e.getErrorCode() + " " + nNumber);
             return new String[]{"",""};
         }
-        return new String[]{result, "" + totalGpa};
+        return new String[]{result, "" + (earned / attempted)};
+    }
+
+    // Get quality hours for GPA calculation
+    private static int getQualityHours(String course) {
+        try {
+            String q = """
+                    SELECT SEM_HOURS
+                    FROM COURSE
+                    WHERE COURSE_NUM = ?
+                    """;
+            PreparedStatement pstmt = conn.prepareStatement(q);
+            pstmt.setString(1, course);
+            ResultSet resultSet = pstmt.executeQuery();
+
+            int hours = -1;
+            while (resultSet.next())
+                hours = resultSet.getInt("SEM_HOURS");
+
+            return hours;
+        } catch (SQLException e) {
+            return -1;
+        }
     }
 
     public static String queryStudent(String nNumber) {
