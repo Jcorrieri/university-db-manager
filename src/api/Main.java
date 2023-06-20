@@ -122,32 +122,11 @@ public class Main {
 
         pstmt.setString(1, nNumber); // Cannot be null
         pstmt.setString(2, ssn); // Cannot be null
-
-        // Must check if null
-        if ((phone.equals("")))
-            pstmt.setNull(3, Types.CHAR);
-        else
-            pstmt.setString(3, phone);
-
-        if (fName.equals(""))
-            pstmt.setNull(4, Types.VARCHAR);
-        else
-            pstmt.setString(4, fName);
-
-        if (mInit.equals(""))
-            pstmt.setNull(5, Types.CHAR);
-        else
-            pstmt.setString(5, mInit);
-
-        if (lName.equals(""))
-            pstmt.setNull(6, Types.VARCHAR);
-        else
-            pstmt.setString(6, lName);
-
-        if (address.equals(""))
-            pstmt.setNull(7, Types.VARCHAR);
-        else
-            pstmt.setString(7, address);
+        pstmt.setString(3, phone);
+        pstmt.setString(4, fName);
+        pstmt.setString(5, mInit);
+        pstmt.setString(6, lName);
+        pstmt.setString(7, address);
 
         pstmt.executeUpdate();
     }
@@ -190,47 +169,14 @@ public class Main {
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             pstmt.setString(1, nNumber); // Cannot be null
-
-            // Must check if null
-            if (birthdate.equals(""))
-                pstmt.setNull(2, Types.DATE);
-            else // this converts the String object into a Date object (yyyy-mm-dd)
-                pstmt.setDate(2, Date.valueOf(birthdate));
-
-            if (sex.equals(""))
-                pstmt.setNull(3, Types.CHAR);
-            else
-                pstmt.setString(3, sex);
-
-            if (permPhone.equals(""))
-                pstmt.setNull(4, Types.CHAR);
-            else
-                pstmt.setString(4, permPhone);
-
-            if (permState.equals(""))
-                pstmt.setNull(5, Types.CHAR);
-            else
-                pstmt.setString(5, permState);
-
-            if (permCity.equals(""))
-                pstmt.setNull(6, Types.VARCHAR);
-            else
-                pstmt.setString(6, permCity);
-
-            if (permZip.equals(""))
-                pstmt.setNull(7, Types.INTEGER);
-            else
-                pstmt.setInt(7, Integer.parseInt(permZip));
-
-            if (stdClass.equals(""))
-                pstmt.setNull(8, Types.VARCHAR);
-            else
-                pstmt.setString(8, stdClass);
-
-            if (degree.equals(""))
-                pstmt.setNull(9, Types.VARCHAR);
-            else
-                pstmt.setString(9, degree);
+            pstmt.setDate(2, Date.valueOf(birthdate)); //(yyyy-mm-dd)
+            pstmt.setString(3, sex);
+            pstmt.setString(4, permPhone);
+            pstmt.setString(5, permState);
+            pstmt.setString(6, permCity);
+            pstmt.setInt(7, Integer.parseInt(permZip));
+            pstmt.setString(8, stdClass);
+            pstmt.setString(9, degree);
 
             int numRows = pstmt.executeUpdate();
             System.out.println(numRows + " row(s) inserted");
