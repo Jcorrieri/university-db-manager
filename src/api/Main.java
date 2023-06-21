@@ -6,6 +6,7 @@ import gui.dialogs.ViewDialog;
 import java.sql.*;
 import java.util.ArrayList;
 
+@SuppressWarnings("DuplicatedCode")
 public class Main {
 
     private static Connection conn;
@@ -176,9 +177,8 @@ public class Main {
         pstmt.executeUpdate();
     }
 
+    // Process student data and add to database... (Front-end task #1)
     public static boolean addStudentToDatabase(ArrayList<String> studentData) {
-        // Process student data and add to database... (Front-end task #1)
-
         // Retrieve data from array (DIFFERENT ORDER FROM INSERTION ORDER -- SEE GUI)
         String fName = studentData.get(0);
         String mInit = studentData.get(1);
@@ -253,22 +253,69 @@ public class Main {
         return true;
     }
 
+    // Process instructor data and add to database... (Front-end task #1)
     public static boolean addInstructor(ArrayList<String> instructorData) {
-        // Process instructor data and add to database... (Front-end task #1)
         // Call addPerson()
+        String fName = instructorData.get(0);
+        String mInit = instructorData.get(1);
+        String lName = instructorData.get(2);
+        String address = instructorData.get(3);
+        String phone = instructorData.get(4);
+        String ssn = instructorData.get(5);
+        String age = instructorData.get(6);
+        String department = instructorData.get(7);
+        String nNumber = instructorData.get(8);
+        String officeNo = instructorData.get(9);
+
+        try{
+            addPerson(new String[]{nNumber, ssn, phone, fName, mInit, lName, address});
+
+            PreparedStatement pstmt =
+                    conn.prepareStatement("INSERT INTO INSTRUCTOR (ASSOC_DEPART, NNUMBER, AGE, OFFICE_NUM)" +
+                            " VALUES (?, ?, ?, ?)");
+            pstmt.setString(1, department);
+            pstmt.setString(2, nNumber);
+            pstmt.setInt(3, Integer.parseInt(age));
+            pstmt.setInt(4, Integer.parseInt(officeNo));
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+
+        } catch (SQLException | NumberFormatException e){return false;}
+
         logger.logInstructor(instructorData.toString());
         return true;
     }
 
+    // Process department data and add to database
     public static boolean addDepartment(ArrayList<String> departmentData) {
-        // Process department data and add to database... (Front-end task #1)
+        String deptName = departmentData.get(0);
+        String deptCode = departmentData.get(1);
+        String college  = departmentData.get(2);
+        int offNum = Integer.parseInt(departmentData.get(3));
+        String offPhone = departmentData.get(4);
+        try {
+            PreparedStatement pstmt =
+                    conn.prepareStatement ("INSERT INTO DEPARTMENT(DEPT_CODE, DEPT_NAME, OFFICE_PHONE, " +
+                            "OFFICE_NUM, COLLEGE) VALUES(?, ?, ?, ?, ?)");
+
+            pstmt.setString(1, deptCode);
+            pstmt.setString(2, deptName);
+            pstmt.setString(3, offPhone);
+            pstmt.setInt(4, offNum);
+            pstmt.setString(5, college);
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+        } catch (SQLException e) {
+            return false;
+        }
         logger.logDepartment(departmentData.toString());
         return true;
     }
 
+    // Process course data and add to database... (Front-end task #1)
     public static boolean addCourse(ArrayList<String> courseData) {
-        // Process course data and add to database... (Front-end task #1)
-
         String name = courseData.get(0);
         String description = courseData.get(1);
         String courseNum = courseData.get(2);
@@ -298,20 +345,86 @@ public class Main {
         return true;
     }
 
+    // Process section data and add to database... (Front-end task #1)
     public static boolean addSection(ArrayList<String> sectionData) {
-        // Process section data and add to database... (Front-end task #1)
+        String nNumber = sectionData.get(0);
+        String courseNo = sectionData.get(1);
+        String sectionNo = sectionData.get(2);
+        String semester = sectionData.get(3);
+        String year = sectionData.get(4);
+
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO SECTION " +
+                    "(SECTION_NUM,SEMESTER,YEAR,COURSE_NUM,INSTRUCTOR) VALUES (?, ?, ?, ?, ?)");
+
+            pstmt.setInt(1, Integer.parseInt(sectionNo));
+            pstmt.setString(2, semester) ;
+            pstmt.setInt(3, Integer.parseInt(year));
+            pstmt.setString(4, courseNo);
+            pstmt.setString(5, nNumber);
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+        } catch (SQLException e) {return false;}
+
         logger.logSection(sectionData.toString());
         return true;
     }
 
+    // Process section student data and add to database... (Front-end task #2)
     public static boolean addStudentToSection(ArrayList<String> studentData) {
-        // Process section student data and add to database... (Front-end task #2)
+        String nNumber = studentData.get(0);
+        String courseNo = studentData.get(1);
+        String sectionNo = studentData.get(2);
+        String semester = studentData.get(3);
+        String year = studentData.get(4);
+
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ASSIGNED_TO " +
+                    "(NNUMBER,COURSE_NUM, SECTION_NUM, SEMESTER, YEAR) VALUES " +
+                    "(?, ?, ?, ?, ?)");
+
+            pstmt.setString(1, nNumber);
+            pstmt.setString(2, courseNo);
+            pstmt.setInt(3,Integer.parseInt(sectionNo));
+            pstmt.setString(4, semester);
+            pstmt.setInt(5, Integer.parseInt(year));
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+
+        } catch(SQLException e) {return false;}
+
         logger.logSectionStudent(studentData.toString());
         return true;
     }
 
+    // Process grade data and add to database... (Front-end task #6)
     public static boolean addGrade(ArrayList<String> gradeData) {
-        // Process grade data and add to database... (Front-end task #6)
+        String nNumber = gradeData.get(0);
+        String grade = gradeData.get(1);
+        String courseNo = gradeData.get(2);
+        String sectionNo = gradeData.get(3);
+        String semester = gradeData.get(4);
+        String year = gradeData.get(5);
+
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ASSIGNED_TO " +
+                    "(NNUMBER,COURSE_NUM, SECTION_NUM, SEMESTER, YEAR, GRADE) VALUES " +
+                    "(?, ?, ?, ?, ?, ?)");
+
+            pstmt.setString(1, nNumber);
+            pstmt.setString(2, courseNo);
+            pstmt.setInt(3,Integer.parseInt(sectionNo));
+            pstmt.setString(4, semester);
+            pstmt.setInt(5, Integer.parseInt(year));
+            pstmt.setString(6, grade);
+
+            int numRows = pstmt.executeUpdate();
+            System.out.println(numRows + " row(s) inserted");
+
+        } catch(SQLException e) {return false;}
+
         logger.logGrade(gradeData.toString());
         return true;
     }
