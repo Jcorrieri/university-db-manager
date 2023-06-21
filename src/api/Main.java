@@ -105,13 +105,45 @@ public class Main {
     // Get the courses offered by a department
     public static String queryCourses(String dept, int type) {
         // Make sure to differentiate between dept_code and dept_name as they are both valid inputs
-        if (type == ViewDialog.DEPT_NAME) {
-            System.out.println("NAME");
-        } else {
-            System.out.println("CODE");
-        }
+        String result = "";
+        String q = """
+            SELECT COURSE_NAME, COURSE_DESC, COURSE_NUM, SEM_HOURS, COURSE_LVL
+            FROM COURSE
+            WHERE OFFERING_DEPT = ?
+            """;
 
-        return "dummy";
+        try {
+            if (type == ViewDialog.DEPT_NAME) {
+                String q2 = """
+                        SELECT DEPT_CODE
+                        FROM DEPARTMENT
+                        WHERE DEPT_NAME = ?
+                        """;
+
+                PreparedStatement pstmt = conn.prepareStatement(q2);
+                pstmt.setString(1, dept);
+
+                ResultSet resultSet = pstmt.executeQuery();
+                while (resultSet.next())
+                    dept = resultSet.getString("DEPT_CODE");
+            }
+            PreparedStatement pstmt = conn.prepareStatement(q);
+            pstmt.setString(1, dept);
+
+            ResultSet resultSet = pstmt.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("COURSE_NAME");
+                String desc = resultSet.getString("COURSE_DESC");
+                String num = resultSet.getString("COURSE_NUM");
+                int hours = resultSet.getInt("SEM_HOURS");
+                int level = resultSet.getInt("COURSE_LVL");
+                result += name + ", " + desc + ", " + num + ", " + hours + ", " + level + "\n";
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getErrorCode());
+            return "";
+        }
+        return result;
     }
 
     // Get the sections a given instructor teaches
