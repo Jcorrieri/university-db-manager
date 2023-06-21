@@ -77,6 +77,7 @@ public class Main {
         return new String[]{result, "" + (earned / attempted)};
     }
 
+    // Get general student info for grade report
     public static String queryStudent(String nNumber) {
         String result = "";
         String q = """
@@ -149,7 +150,29 @@ public class Main {
     // Get the sections a given instructor teaches
     public static String querySections(String nNumber) {
         // Instructor nNumber is input
-        return "dummy";
+        String result = "";
+        try {
+            String q = """
+                    SELECT COURSE_NUM, SECTION_NUM, SEMESTER, YEAR
+                    FROM SECTION
+                    WHERE INSTRUCTOR = ?
+                    """;
+            PreparedStatement pstmt = conn.prepareStatement(q);
+            pstmt.setString(1, nNumber);
+
+            ResultSet resultSet = pstmt.executeQuery();
+            while (resultSet.next()) {
+                String course = resultSet.getString("COURSE_NUM");
+                int section = resultSet.getInt("SECTION_NUM");
+                String semester = resultSet.getString("SEMESTER");
+                int year = resultSet.getInt("YEAR");
+
+                result += course + ", " + section + ", " + semester + ", " + year + "\n";
+            }
+        } catch (SQLException e) {
+            return "";
+        }
+        return result;
     }
 
     // Get quality hours for GPA calculation
