@@ -102,7 +102,7 @@ public class Main {
     }
 
     // Get the courses offered by a department
-    public static String queryCourses(String input, int type) {
+    public static String queryCourses(String dept, int type) {
         // Make sure to differentiate between dept_code and dept_name as they are both valid inputs
         if (type == ViewDialog.DEPT_NAME) {
             System.out.println("NAME");
