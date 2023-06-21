@@ -176,7 +176,7 @@ public class DepartmentCoursePanel extends CustomJPanel {
         gbc.gridy = 13;
 
         gbc.gridx = 0;
-        add(new JLabel("Offering Department"), gbc);
+        add(new JLabel("Offering Department (Code)"), gbc);
 
         gbc.gridx = 1;
         add(new JLabel("Level"), gbc);

@@ -129,7 +129,7 @@ public class InstructorSectionPanel extends CustomJPanel {
         gbc.gridy = 9;
 
         gbc.gridx = 0;
-        add(new JLabel("Department"), gbc);
+        add(new JLabel("Department Code"), gbc);
 
         gbc.gridx = 1;
         add(new JLabel("N_Number"), gbc);
