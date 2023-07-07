@@ -17,7 +17,7 @@ This is a class project utilizing the JDBC API and an Oracle database.
 * Implemented the Logger class
 * Implemented the main method (connecting to the database using JDBC and instantiating the GUI)
 * Implemented the following methods in the Main class:
-  * queryGrade(), queryStudent(), queryCourses(), querySections(), getQualityHours(), addPerson(), addStudentToDatabase(), and addCourse().
+  * queryGrade(), queryStudent(), queryCourses(), querySections(), getQualityHours(), addPerson(), addStudentToDatabase(), and addCourse()
 * Created and added the following tables to the database:
   * PERSON, DEPARTMENT, and MAJORS_IN
 * Contributed to the relational schema as well as the ERR diagram
