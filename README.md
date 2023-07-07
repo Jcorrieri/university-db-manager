@@ -4,11 +4,11 @@ This is a class project utilizing the JDBC API and an Oracle database.
 
 ## ERR Diagram
 
-![ERR Diagram](/relative/path/to/img.jpg?raw=true "ERR Diagram")
+![ERR Diagram](misc/DB_PROJECT_ER.drawio.pdf?raw=true "ERR Diagram")
 
 ## Relational Schema
 
-![Relational Schema](/relative/path/to/img.jpg?raw=true "Relational Schema")
+![Relational Schema](misc/UPDATEDSCHEMA.pdf?raw=true "Relational Schema")
 
 ## Contributions
 
