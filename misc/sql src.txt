@@ -1,47 +1,3 @@
-# DB_PROJ_G2
-
-This is a class project utilizing the JDBC API and an Oracle database.
-
-## ERR Diagram
-
-![ERR Diagram](/relative/path/to/img.jpg?raw=true "ERR Diagram")
-
-## Relational Schema
-
-![Relational Schema](/relative/path/to/img.jpg?raw=true "Relational Schema")
-
-## Contributions
-
-### Jacomo Corrieri:
-* Implemented the GUI components and linked them to the Main class
-* Implemented the Logger class
-* Implemented the main method (connecting to the database using JDBC and instantiating the GUI)
-* Implemented the following methods in the Main class:
-  * queryGrade(), queryStudent(), queryCourses(), querySections(), getQualityHours(), addPerson(), addStudentToDatabase(), and addCourse().
-* Created and added the following tables to the database:
-  * PERSON, DEPARTMENT, and MAJORS_IN
-* Contributed to the relational schema as well as the ERR diagram
-* Contributed to the conceptual layout of the GUI
-
-### Zeke Geiger:
-* Implemented the following methods in the Main class:
-  * addInstructor(), addSection(), addStudentToSection(), and addGrade()
-* Created and added the following tables to the database:
-  *  STUDENT, SECTION, and ASSIGNED_TO
-* Contributed to the relational schema as well as the ERR diagram
-* Contributed to the conceptual layout of the GUI
-
-### Benjamin Cruz: 
-* Implemented the following methods in the Main class:
-  * addDepartment()
-* Created and added the following tables to the database:
-  *  COURSE, INSTRUCTOR, and MINORS_IN
-* Contributed to the relational schema as well as the ERR diagram
-* Contributed to the conceptual layout of the GUI
-
-## SQL Source Code
-
-```sql
 CREATE TABLE PERSON 
 	(	Nnumber CHAR(9) NOT NULL,
 		Ssn CHAR(9) NOT NULL,
@@ -151,4 +107,5 @@ CREATE TABLE ASSIGNED_TO
 			FOREIGN KEY(Nnumber) REFERENCES STUDENT(Nnumber),
 		CONSTRAINT ATSNFK
 			FOREIGN KEY(Section_num, Semester, Year, Course_num) REFERENCES SECTION(Section_num, Semester, Year, Course_num) );
-```
+	
+	
