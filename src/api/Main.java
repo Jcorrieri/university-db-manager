@@ -13,8 +13,8 @@ public class Main {
     public static Logger logger;
 
     public static void main(String[] args) throws SQLException {
-        String uid = "G02";
-        String password = "tZIzV8tK";
+        String uid = args[0];
+        String password = args[1];
 
         String url = "jdbc:oracle:thin:@cisvm-oracle.unfcsd.unf.edu:1521:orcl";
 
