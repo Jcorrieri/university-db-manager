@@ -23,7 +23,7 @@ This is a class project utilizing the JDBC API and an Oracle database.
 * Contributed to the relational schema as well as the ERR diagram
 * Contributed to the conceptual layout of the GUI
 
-### Zeke Geiger:
+### Zeke:
 * Implemented the following methods in the Main class:
   * addInstructor(), addSection(), addStudentToSection(), and addGrade()
 * Created and added the following tables to the database:
@@ -31,7 +31,7 @@ This is a class project utilizing the JDBC API and an Oracle database.
 * Contributed to the relational schema as well as the ERR diagram
 * Contributed to the conceptual layout of the GUI
 
-### Benjamin Cruz: 
+### Benjamin: 
 * Implemented the following methods in the Main class:
   * addDepartment()
 * Created and added the following tables to the database:
