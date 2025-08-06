@@ -13,13 +13,9 @@ public class Main {
     public static Logger logger;
 
     public static void main(String[] args) throws SQLException {
-        String uid = args[0];
-        String password = args[1];
+        String url = System.getenv("DATABASE_URL");
 
-        String url = "jdbc:oracle:thin:@cisvm-oracle.unfcsd.unf.edu:1521:orcl";
-
-        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-        conn = DriverManager.getConnection(url, uid, password);
+        conn = DriverManager.getConnection(url);
 
         logger = new Logger();
 
@@ -301,6 +297,7 @@ public class Main {
                 pstmt.executeUpdate();
             }
         } catch (SQLException | NumberFormatException e) {
+            System.out.println(e.getMessage());
             return false;
         }
 
@@ -363,6 +360,7 @@ public class Main {
             int numRows = pstmt.executeUpdate();
             System.out.println(numRows + " row(s) inserted");
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             return false;
         }
         logger.logDepartment(departmentData.toString());

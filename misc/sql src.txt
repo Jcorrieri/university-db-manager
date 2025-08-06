@@ -8,19 +8,19 @@ CREATE TABLE PERSON
 		Address VARCHAR(75),
 		CONSTRAINT PPK
 			PRIMARY KEY (Nnumber),
-		CONSTAINT PSK
+		CONSTRAINT PSK
 			UNIQUE (Ssn) );
 
 CREATE TABLE DEPARTMENT
     (   Dept_code VARCHAR(4) NOT NULL,
-        Name VARCHAR(50) NOT NULL,
+        Dept_Name VARCHAR(50) NOT NULL,
         Office_phone CHAR(10),
         Office_num INT,
         College VARCHAR(50),
         CONSTRAINT DEPTPK
             PRIMARY KEY (Dept_code),
         CONSTRAINT DEPTSK
-            UNIQUE (Name) );
+            UNIQUE (Dept_Name) );
 			
 CREATE TABLE INSTRUCTOR
 	(	Assoc_depart VARCHAR(4)NOT NULL,

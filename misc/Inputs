@@ -1,3 +1,28 @@
-Students: N02345678
-Instructors: N04567123, N04567899
-Departments: CS (Computer Science), EE (Electrical Engineering)
+Students: n02345678
+    [Brian, D, Goose, 4444 StreetName Drive, Jacksonville, FL, 32222, 9042222555, 9042222555, 2002-11-03, M, 222331143, n02144468, Senior, PS, , Bachelor]
+
+
+Departments:
+    [Computer Science, CS, School of Computing and Engineering, 2084, 1234567890]
+    [Electrical Engineering, EE, College of Computing and Engineering, 3399, 1234567829]
+    [Physical Science, PS, College of Arts and Sciences, 8002, 2918390144]
+
+Instructors:
+    [Stephen, G, Turbo, 123 streetname drive, 9042222323, 123456789, 44, EE, n37892046, 3301]
+    [Johnny, V, Stewmonger, 479 streetname lane, 9042922827, 141887582, 59, PS, n28492212, 8010]
+    [Lenny, Q, Mistenbark, 449 streetname avenue, 9042828747, 123487272, 32, CS, n28284595, 2551]
+
+Courses:
+    [Programming I, Intro to Programming, 2010, CS, 2000, 3]
+    [Data Structures, Intro to data structures like linked lists and such., 3530, CS, 3000, 3]
+    [General Chemistry I, Titration, dilution, periodic table, 2340, PS, 2000, 3]
+    [Advanced Circuits, Circuits beyond the standard level... advanced, 4440, EE, 4000, 4]
+    [Physics I, Introduction to forces, torque, vectors, momentum, waves, 2770, PS, 2000, 3]
+    [Digital Signal Processing, Processing audio and electrical signals for computer engineers., 3040, EE, 3000, 3]
+
+Sections:
+    [n37892046, 4440, 1, Fall, 2025]
+    [n37892046, 3040, 1, Fall, 2025]
+    [n28492212, 2340, 1, Fall, 2025]
+    [n28284595, 2010, 1, Fall, 2025]
+
